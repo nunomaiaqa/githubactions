@@ -1,0 +1,16 @@
+name: cypres tests
+
+on: [push]
+
+jobs:
+  cypress-electron-tests:
+    runs-on: ubuntun-latest
+    steps: 
+      - name: Get Code
+        uses: actions/checkout@v6.0.2
+
+      - name: Install dependecies
+        run: npm install 
+
+      - name: Run E2E tests
+        run: npm cypress run
