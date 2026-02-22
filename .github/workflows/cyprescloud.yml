@@ -5,21 +5,23 @@ on:
     inputs:
       spec:
         description: Run by cypress commad line
-        default: cypress/e2e/*.* 
+        default: cypress/e2e/*
+        
 jobs:
   cypress-e2e-electron:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
         uses: actions/checkout@v6.0.2
+        
       - name: Cypress run
         uses: cypress-io/github-action@v6.5.0
         with:
-         install-command: yarn install
-         browser: electron
-         record: true
-         group: UI Electron
-         spec: ${{github.event.inputs.spec}}
+          install-command: yarn install
+          browser: electron
+          record: true
+          group: UI Electron
+          spec: ${{github.event.inputs.spec}}
          
     env:
         CYPRESS_RECORD_KEY: 22427bb6-3b71-40db-9524-4647a89c4671
